@@ -17,6 +17,7 @@ RUN apk -U add curl jq bash nodejs nodejs-npm python3 py3-pip && \
 
 # copy the code
 COPY . .
+RUN mv /usr/src/app/startup-cdk.sh /usr/src/app/startup.sh
 HEALTHCHECK --interval=10s --timeout=3s \
   CMD curl -f -s http://localhost:3000/health/ || exit 1
 EXPOSE 3000
